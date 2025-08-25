@@ -39,10 +39,9 @@
 
 ## 사용 방법
 
-1. 저장소를 로컬에 클론합니다.  
-2. `conf.txt`를 열어 Google Sheets URL, GID, 공연 정보 등을 수정합니다.  
-3. 메인 스크립트(`node index.js` 또는 `python main.py`)를 실행합니다.  
-4. 브라우저나 생성된 출력을 통해 최신 일정 뷰를 확인합니다.  
+1. Google Forms와 연동된 Google Sheets를 형식에 맞게 가공합니다. 이건 방법을 명확하게 작성하기 귀찮아서... 그냥 연락주세요. 금방 하고 한번만 해놓으면 됩니다. 
+2. `hongkiCharter_pc.exe` 파일과 같은 폴더에 `conf.txt`라는 이름으로 Google Sheets URL, GID, 공연 정보 등을 지정합니다.  
+3. `hongkiCharter_pc.exe` 파일을 더블클릭하여 실행하면 이전 정기공연과 시간에 따른 예매자 수 추이를 비교할 수 있습니다. 
 
 ## 정보
 
