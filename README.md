@@ -43,3 +43,9 @@
 2. `conf.txt`를 열어 Google Sheets URL, GID, 공연 정보 등을 수정합니다.  
 3. 메인 스크립트(`node index.js` 또는 `python main.py`)를 실행합니다.  
 4. 브라우저나 생성된 출력을 통해 최신 일정 뷰를 확인합니다.  
+
+## 정보
+
+- 제작자: 손상원, 리버액트 12기
+- 문의: s.son7651@gmail.com
+- 라이선스: MIT
