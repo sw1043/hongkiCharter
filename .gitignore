@@ -39,6 +39,7 @@ plots/
 
 # DEV files
 dev*
+.dev/
 
 # NOT YET
 *_mob.py
