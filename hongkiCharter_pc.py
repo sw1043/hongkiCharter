@@ -2,8 +2,8 @@
 INFO_STR: str = """
 
 *****************************************************
-* hongkiCharter ver 1.0                             *
-* released at 2025-08-26                            *
+* hongkiCharter ver 1.1                             *
+* first released at 2025-08-26                      *
 * 제25회 정기공연 <나무는 서서 죽는다>를 준비하며   *
 * by 리버액트 12기 손상원                           *
 *****************************************************
@@ -26,6 +26,8 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo 
 import json
 import re
+
+import math
 plt.rc('font', family='Malgun Gothic')
 
 print(' Program loaded...')
@@ -142,8 +144,12 @@ def dday_tickfmt(x, pos):
     ts = pd.Timestamp(dt.date())      # 날짜만 취해 naive Timestamp로
     return dday_formatter(ts)
 
-ax.xaxis.set_major_locator(mdates.DayLocator())
-ax.xaxis.set_major_formatter(plt.FuncFormatter(dday_tickfmt))                                       # type: ignore
+ax.xaxis.set_major_locator(mdates.HourLocator(interval=24))  # 눈금: 24시간 간격
+ax.xaxis.set_minor_locator(mdates.HourLocator(interval=12))  # 격자선: 12시간 간격
+ax.xaxis.set_major_formatter(plt.FuncFormatter(dday_tickfmt)) # type: ignore
+
+plt.grid(True, alpha=0.3, which='major')  
+plt.grid(True, alpha=0.1, which='minor')  
 
 ax.axvline(current_initial_day.replace(tzinfo=None), color='gray', linestyle='--', linewidth=1)     # type: ignore
 current_naive = currentTime.replace(tzinfo=None)
@@ -153,12 +159,14 @@ ax.set_xlim(left_dt, right_dt)                                                  
 ax.autoscale(False)
 ax.margins(x=0)
 
+plt.ylim(0, math.ceil(df_long['cmltv'].max()/100)*100)
+
 plt.title(f"[{currentTime.strftime('%m/%d %H:%M')}] 공연별 예매 추이 비교")
 plt.xlabel("")
 plt.ylabel("")
-plt.grid(True, alpha=0.2)  # Add grid lines
 
 print(' Plot generated.\n')
+plt.savefig(resource_path(f"plots\\{current_play}at{currentTime.strftime('%Y%m%d_%H%M')}.png"), dpi=120)
 plt.show()
 
 input(" Press Enter to exit...")
