@@ -9,6 +9,12 @@
 - 각 공연을 설정된 색상으로 강조 표시  
 - `left_lim`/`right_lim`으로 달력 뷰의 좌우 범위 조정  
 
+## 작동 예시
+
+<img width="800" height="577" alt="Image" src="https://github.com/user-attachments/assets/f58764d2-336e-493c-8fed-10228b2a6fc9" />
+
+- 마스킹된 이미지입니다. 
+
 ## 설정 방법
 
 모든 설정은 프로젝트 최상위의 `conf.txt` 파일에서 관리합니다.
